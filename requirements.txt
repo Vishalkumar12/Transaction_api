@@ -1,0 +1,33 @@
+You are tasked with building a secure transaction processing service for a Web3 backend. 
+
+This service should:
+
+1. Accept transaction requests via an API.
+2. Process Ethereum transactions securely using Ethers.js.
+3. Store transaction metadata in MongoDB.
+4. Listen for real-time confirmation events from the blockchain
+
+
+API Endpoint (Express.js):
+POST /sendTransaction
+- Input JSON: { "to": "<recipient_address>", "amount": "<amount_in_ether>" }
+Validation:
+- Validate the Ethereum address format.
+- Ensure the amount is a positive number.
+Return a response with the transaction hash or an error message.
+
+Step 2:
+Process transaction (Ethers.js):
+- Sign and send the transaction.
+- Security Rule: Do NOT hardcode private keys. Use environment variables.
+
+Step 3: 
+MongoDB Integration:
+- Store transaction data with the following schema:
+ { txHash, from, to, amount, status (pending/confirmed/failed), timestamp } 
+- Update the transaction status upon confirmation.
+
+Step 4: 
+Real-Time Blockchain Monitoring:
+- Listen for confirmation events of the sent transactions.
+- Update the transaction status in MongoDB when confirmed.
